@@ -2,10 +2,12 @@ import { csv } from "d3-fetch"
 import { select } from "d3-selection";
 import {makeCategoriesMap, makeHire, openClose, percentChange} from './data_manipulation/make_hire'
 import { mergeStatePortfolio } from "./data_manipulation/mergeStatePortfolio.js";
+import { chartAndListData } from "./data_manipulation/chartAndListData.js";
 import { selectCom } from "./components/selectCom.js";
+import {stockComponentList} from './components/stockComp.js'
 import Treemap from './treemap.js';
 
-export const app = async(chart_one_elm, chart_two_elm, form_elm, select_elm) => {
+export const app = async(chart_one_elm, chart_two_elm, form_elm, select_elm, stock_list_elm) => {
     console.log('hello world')
     let stock_data = await csv('/data/stock_data/all_stocks_5yr.csv');
     const stock_segment = await csv('data/stock_segment/stock_SP_2025.csv')
@@ -34,7 +36,9 @@ export const app = async(chart_one_elm, chart_two_elm, form_elm, select_elm) => 
     const form = select(form_elm)
     console.log('form', form);
     let statePortfolio = [];
-    let i = 0;
+    //init stock list component;
+    stockComponentList({data:[], el:stock_list_elm});
+    let i = 1;
     form.on('submit', (e)=>{
         e.preventDefault();
         const stockNameEl = document.getElementById('stock-select');
@@ -44,7 +48,13 @@ export const app = async(chart_one_elm, chart_two_elm, form_elm, select_elm) => 
         const units = parseInt(unitsEl.value);
         const stockDataItem = {name:stockName, units:units};
         statePortfolio = mergeStatePortfolio({oldState:statePortfolio,newData:stockDataItem});
-        console.log(statePortfolio, i++);
+        const chartListData = chartAndListData({appState:statePortfolio, openCloseData: openCloseData});
+
+        console.log(chartListData, i++);
+
+        //interactive elements 
+        stockComponentList({data:chartListData, el:stock_list_elm});
+    
     })
     
         

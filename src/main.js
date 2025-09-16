@@ -19,5 +19,5 @@ document.querySelector('#app').innerHTML = `
    </p>
   </div>
 `
-app(document.querySelector('#stock-treemap'),document.querySelector('#stock-bumbell'),  document.querySelector('#stock-input'), document.querySelector('#stock-select'))
+app(document.querySelector('#stock-treemap'),document.querySelector('#stock-bumbell'),  document.querySelector('#stock-input'), document.querySelector('#stock-select'),document.querySelector('#stock-list'))
 //setupCounter(document.querySelector('#counter'))

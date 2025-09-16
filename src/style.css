@@ -94,3 +94,7 @@ button:focus-visible {
     background-color: #6caff7;
   }
 }
+
+li{
+  text-align: left;
+}
