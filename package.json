@@ -10,5 +10,12 @@
   },
   "devDependencies": {
     "vite": "^7.1.2"
+  },
+  "dependencies": {
+    "@visa/charts": "^8.0.1",
+    "d3": "^7.9.0",
+    "d3-fetch": "^3.0.1",
+    "d3-hierarchy": "^3.1.2",
+    "d3-selection": "^3.0.0"
   }
 }

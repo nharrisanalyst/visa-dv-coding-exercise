@@ -1,24 +1,23 @@
 import './style.css'
 import javascriptLogo from './javascript.svg'
 import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.js'
+import { app } from './app.js'
 
 document.querySelector('#app').innerHTML = `
   <div>
-    <a href="https://vite.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-      <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
-    </a>
-    <h1>Hello Vite!</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite logo to learn more
-    </p>
+  <p>
+   <form id="stock-input">
+   <label for="stock-select">Choose a Stock:</label>
+    <select id="stock-select"> 
+    </select>
+    <label for="stock-select">How Many Units:</label>
+    <input id="stock-units" type="number" />
+    <button type="submit" value=""> Add Stock </button>
+   </form>
+   <div id="stock-list"></div>
+   <div id="stock-treemap"></div><div id="stock-bumbell"></div>
+   </p>
   </div>
 `
-
-setupCounter(document.querySelector('#counter'))
+app(document.querySelector('#stock-treemap'),document.querySelector('#stock-bumbell'),  document.querySelector('#stock-input'), document.querySelector('#stock-select'))
+//setupCounter(document.querySelector('#counter'))
