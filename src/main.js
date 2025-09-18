@@ -2,10 +2,17 @@ import './style.css'
 import javascriptLogo from './javascript.svg'
 import viteLogo from '/vite.svg'
 import { app } from './app.js'
+import { defineCustomElements } from '@visa/bar-chart/dist/loader';
+import { setBarChart } from './components/setBarChart.js';
+
+
+defineCustomElements()
 
 document.querySelector('#app').innerHTML = `
-  <div>
-  <p>
+  <div class="myApp">
+  <h1></h1>
+  <p></P>
+  <div class="interactive">
    <form id="stock-input">
    <label for="stock-select">Choose a Stock:</label>
     <select id="stock-select"> 
@@ -14,10 +21,45 @@ document.querySelector('#app').innerHTML = `
     <input id="stock-units" type="number" />
     <button type="submit" value=""> Add Stock </button>
    </form>
+
    <div id="stock-list"></div>
-   <div id="stock-treemap"></div><div id="stock-bumbell"></div>
-   </p>
+   <div id="stock-tree-cont">
+   <h2 class"treemap-main-title">
+    Stock Portfolio Grrouped by Industry displaying Value
+   </h2> 
+   
+   <div id="stock-treemap"></div>
+   <div id="tree-legend"></div>
+   </div>
+   <div id="bar-chart-cont"></div>
+   </div>
   </div>
 `
-app(document.querySelector('#stock-treemap'),document.querySelector('#stock-bumbell'),  document.querySelector('#stock-input'), document.querySelector('#stock-select'),document.querySelector('#stock-list'))
+const chartBar = document.createElement('bar-chart');
+chartBar.id = 'myBarChart';
+document.querySelector('#bar-chart-cont').appendChild(chartBar);
+
+
+window.customElements.whenDefined('bar-chart').then(() => {
+  console.log('ahvcdlahcildahsfjahfdjshfkajldhfsklhdaslf')
+const chartBar = document.querySelector('#myBarChart');
+
+setBarChart({chart:chartBar, 
+              title:"Top Preforming and Worse Preforming Stocks", 
+              subTitle:"Chart is Limited to the 5 best and 5 worst preforming stocks", 
+              data:[],
+              yAxis: {
+                "label": "Total Return Growth"
+            },
+              ordinalAccessor:"name", valueAccessor:"change", height:650, width:500, 
+              accessibility:{longDescription: 'Stock portfolio Min and Max stocks limit ten',
+                              executiveSummary: 'min max stocks'
+                            }})
+
+app(document.querySelector('#stock-treemap'),document.querySelector('#stock-bumbell'),  document.querySelector('#stock-input'), document.querySelector('#stock-select'),document.querySelector('#stock-list'),chartBar)
+
+                          
+})
+
 //setupCounter(document.querySelector('#counter'))
+

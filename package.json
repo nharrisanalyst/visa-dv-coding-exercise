@@ -12,10 +12,14 @@
     "vite": "^7.1.2"
   },
   "dependencies": {
-    "@visa/charts": "^8.0.1",
+    "@visa/bar-chart": "^7.0.1",
     "d3": "^7.9.0",
     "d3-fetch": "^3.0.1",
+    "d3-format": "^3.1.0",
     "d3-hierarchy": "^3.1.2",
-    "d3-selection": "^3.0.0"
+    "d3-scale": "^4.0.2",
+    "d3-scale-chromatic": "^0.0.1",
+    "d3-selection": "^3.0.0",
+    "d3-svg-legend": "^2.25.6"
   }
 }

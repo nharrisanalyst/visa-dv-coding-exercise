@@ -11,15 +11,21 @@ export const makeHire =({cat, data, map})=>{
         if(catObject[cat]){
         catObject[cat].push({
             name:d.name,
-            value:d.change,
+            value:d.price * d.units,
+            change:d.change
         })
         }
     })
 
+    const firstChildren = Object.keys(catObject).map(key=>({
+        name:key,
+        children:catObject[key]
+    }))
+
 
    const root ={
     name:'stocks',
-    children:catObject
+    children:firstChildren
    }
    return root;
 }
