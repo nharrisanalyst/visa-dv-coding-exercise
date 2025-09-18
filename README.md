@@ -19,7 +19,7 @@ This project allows a user to enter their stock portfolio and examine the balanc
 
 ## AI Help 
 1. Used AI to check grammar and spelling of copy in README and in the Visualization
-2. I use AI to get VCC to actually worrk in this application. the instruction in the Documents was far from sufficient in getting the WEb Component to work. Both the import need to us `import { defineCustomElements } from '@visa/bar-chart/dist/loader';` and solving a race condition with Stencil using `const chartBar = document.createElement('bar-chart');    chartBar.id = 'myBarChart'; document.querySelector('#bar-chart-cont').appendChild(chartBar window.customElements.whenDefined('bar-chart').then(()` wher enot documented in VCC and I realide on ChatGPT to get the componet to actually work in Vite.
+2. Used AI to get VCC to actually worrk in this application as a Web Component. the instruction in the Documents was far from sufficient in getting the WEb Component to work. Both the import need to us `import { defineCustomElements } from '@visa/bar-chart/dist/loader';` and solving a race condition with Stencil using `const chartBar = document.createElement('bar-chart');    chartBar.id = 'myBarChart'; document.querySelector('#bar-chart-cont').appendChild(chartBar window.customElements.whenDefined('bar-chart').then(()` wher enot documented in VCC and I realide on ChatGPT to get the componet to actually work in Vite.
 
 
 ## Further Improvements Not Done due to time constraints
