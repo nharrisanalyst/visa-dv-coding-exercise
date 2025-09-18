@@ -27,13 +27,13 @@ document.querySelector('#app').innerHTML = `
    </form>
 
    <div id="stock-list"></div>
-   <div id="stock-tree-cont">
+   <div  tabindex="0"  id="stock-tree-cont" aria-describedby="treemap data visualization">
    <h2 class"treemap-main-title">
     Stock Portfolio Grrouped by Industry displaying Value
    </h2> 
    
-   <div id="stock-treemap"></div>
-   <div id="tree-legend"></div>
+   <div aria-describedby="treemap data visualization chart" alt="treemap data visualization" id="stock-treemap"></div>
+   <div aria-describedby="treemap legend" alt="treemap legend" id="tree-legend"></div>
    </div>
    <div id="bar-chart-cont"></div>
    </div>
