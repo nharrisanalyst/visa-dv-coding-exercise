@@ -28,3 +28,4 @@ This project allows a user to enter their stock portfolio and examine the balanc
 3. adding an option to treemap allowing stocks to be colored by percant change return instead of industry
 4. additional a11y updates
 5. unit test
+6. Make the whole app in React and Typescript for better maintability and code structure.

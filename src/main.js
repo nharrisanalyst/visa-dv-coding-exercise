@@ -12,7 +12,7 @@ document.querySelector('#app').innerHTML = `
   <div class="myApp">
   <h1>Nathan Harris Portfolio Explorer</h1>
   <h4> The Application is initialized with every stock in the s and p 500 </h4>
-  <h4> Use the input to &nbsp;<b> A. Pick a Stock</b>&nbsp; <b> B. Enter how many units</b>&nbsp;<b> C. Add Stock to your Portfolio</b>
+  <h4> Use the input to &nbsp;<b> A. Pick a Stock</b>&nbsp; <b> B. Enter how many units</b>&nbsp;<b> C. Add Stock to your Portfolio</b></h4>
   <p style="border-bottom:1px solid black; padding-bottom: 15px; margin-bottom:65px;">
     This interactive application allows you to view your stock portfolio through two distinct data visualizations. The Treemap on the left displays your portfolio sized by each stock’s value and grouped or colored by industry. The Bar Chart on the right highlights the top five best performing and bottom five worst performing stocks based on percentage change over the selected timeline, making it easy to quickly identify which stocks are having the greatest impact on your portfolio.
   </P>
@@ -45,7 +45,6 @@ document.querySelector('#bar-chart-cont').appendChild(chartBar);
 
 
 window.customElements.whenDefined('bar-chart').then(() => {
-  console.log('ahvcdlahcildahsfjahfdjshfkajldhfsklhdaslf')
 const chartBar = document.querySelector('#myBarChart');
 
 setBarChart({chart:chartBar, 

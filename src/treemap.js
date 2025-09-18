@@ -38,9 +38,7 @@ class Treemap{
     makeColorScale(){
         this.color = scaleOrdinal(this.cats, schemePaired(11))
     }
-    
     makeLegend(){
-        console.log(this.color.domain(), this.range, 'this is on')
         this.legend = select('#tree-legend').selectAll('span').data(this.color.domain()).join('span')
         .html(d=>`<div class="legend-div" style="background-color:${this.color(d)};"></div> ${d}`)
     }
