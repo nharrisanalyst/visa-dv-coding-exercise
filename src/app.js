@@ -10,7 +10,7 @@ import {stockComponentList} from './components/stockComp.js'
 import Treemap from './treemap.js';
 
 export const app = async(chart_one_elm, chart_two_elm, form_elm, select_elm, stock_list_elm, chartBar) => {
-    let stock_data = await csv('/data/stock_data/all_stocks_5yr.csv');
+    let stock_data = await csv('data/stock_data/all_stocks_5yr.csv');
     const stock_segment = await csv('data/stock_segment/stock_SP_2025.csv')
     const stockNames = stock_segment.map(s=> s.Symbol);
     stock_data = stock_data.filter(d=> stockNames.includes(d.Name))
